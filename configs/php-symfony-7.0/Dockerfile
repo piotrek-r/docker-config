@@ -17,9 +17,10 @@ RUN apt-get update \
     git \
     unzip
 RUN php -r "readfile('https://getcomposer.org/installer');" | php -- --install-dir=/usr/local/bin --filename=composer
-RUN php -r "readfile('https://symfony.com/installer');" > /usr/local/bin/symfony
+RUN php -r "readfile('https://symfony.com/installer');" > /usr/local/bin/symfony && chmod +x /usr/local/bin/symfony
 
 COPY run-server.sh /
 RUN chmod +x /run-server.sh
 
 WORKDIR /app
+
