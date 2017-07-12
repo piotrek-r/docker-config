@@ -1,4 +1,5 @@
 FROM ubuntu:16.04
+MAINTAINER Piotr Rybałtowski <pioterek@owl-labs.com>
 
 RUN echo "deb http://ppa.launchpad.net/ondrej/php/ubuntu xenial main" > /etc/apt/sources.list.d/php.list
 RUN apt-get update \
