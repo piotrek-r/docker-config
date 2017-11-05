@@ -1,5 +1,5 @@
 FROM python:3.6
-MAINTAINER Piotr Rybałtowski <pioterek@owl-labs.com>
+MAINTAINER Piotr Rybałtowski <piotrek@owl-labs.com>
 
 RUN pip install mkdocs
 

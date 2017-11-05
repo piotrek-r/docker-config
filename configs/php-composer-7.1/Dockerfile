@@ -1,5 +1,5 @@
 FROM ubuntu:16.04
-MAINTAINER Piotr Rybałtowski <pioterek@owl-labs.com>
+MAINTAINER Piotr Rybałtowski <piotrek@owl-labs.com>
 
 RUN echo "deb http://ppa.launchpad.net/ondrej/php/ubuntu xenial main" > /etc/apt/sources.list.d/php.list
 RUN apt-get update \
@@ -11,6 +11,7 @@ RUN apt-get update \
     php7.1-json \
     php7.1-mbstring \
     php7.1-mcrypt \
+    php7.1-mongodb \
     php7.1-mysql \
     php7.1-pgsql \
     php7.1-xml \
