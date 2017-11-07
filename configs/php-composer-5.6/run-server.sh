@@ -1,3 +1,3 @@
 #!/usr/bin/env bash
 
-/usr/bin/php -S 0:8080 -t public $@ public/index.php
+/usr/bin/php5.6 -S 0:8080 -t public $@ public/index.php
