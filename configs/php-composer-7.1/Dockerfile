@@ -15,6 +15,7 @@ RUN apt-get update && \
       php7.1-mysql \
       php7.1-pgsql \
       php7.1-xml \
+      php7.1-zip \
       php-xdebug \
       git \
       unzip
