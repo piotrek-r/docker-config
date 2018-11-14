@@ -1,9 +1,11 @@
-FROM ubuntu:16.04
-MAINTAINER Piotr Rybałtowski <piotrek@owl-labs.com>
+FROM ubuntu:18.04
+LABEL maintainer=piotrek@owl-labs.com
 
-RUN echo "deb http://ppa.launchpad.net/ondrej/php/ubuntu xenial main" > /etc/apt/sources.list.d/php.list
-RUN apt-get update \
-    && apt-get install -y --allow-unauthenticated \
+ENV DEBIAN_FRONTEND=noninteractive
+
+RUN apt update && apt -y upgrade && apt install -y software-properties-common && add-apt-repository ppa:ondrej/php
+RUN apt update \
+    && apt install -y \
       php7.2 \
       php7.2-curl \
       php7.2-gd \
@@ -15,6 +17,7 @@ RUN apt-get update \
       php7.2-mysql \
       php7.2-pgsql \
       php7.2-xml \
+      php7.2-zip \
       php-xdebug \
       git \
       unzip
