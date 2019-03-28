@@ -9,6 +9,7 @@ RUN apt update \
       php7.2 \
       php7.2-curl \
       php7.2-gd \
+      php7.2-gmp \
       php7.2-intl \
       php7.2-json \
       php7.2-mbstring \

@@ -9,6 +9,7 @@ RUN apt update \
       php7.3 \
       php7.3-curl \
       php7.3-gd \
+      php7.3-gmp \
       php7.3-intl \
       php7.3-json \
       php7.3-mbstring \

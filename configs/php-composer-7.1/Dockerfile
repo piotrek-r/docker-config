@@ -7,6 +7,7 @@ RUN apt-get update && \
       php7.1 \
       php7.1-curl \
       php7.1-gd \
+      php7.1-gmp \
       php7.1-intl \
       php7.1-json \
       php7.1-mbstring \
