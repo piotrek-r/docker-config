@@ -1,7 +1,8 @@
 FROM ubuntu:18.04
 LABEL maintainer=piotrek@owl-labs.com
 
-ENV DEBIAN_FRONTEND=noninteractive
+ENV DEBIAN_FRONTEND=noninteractive \
+    COMPOSER_ALLOW_SUPERUSER=1
 
 RUN apt update && apt -y upgrade && apt install -y software-properties-common && add-apt-repository ppa:ondrej/php
 RUN apt update \
@@ -24,6 +25,7 @@ RUN apt update \
       unzip
 RUN update-alternatives --set php /usr/bin/php7.3
 RUN php -r "readfile('https://getcomposer.org/installer');" | php -- --install-dir=/usr/local/bin --filename=composer
+RUN composer global require hirak/prestissimo
 
 COPY run-server.sh /
 RUN chmod +x /run-server.sh

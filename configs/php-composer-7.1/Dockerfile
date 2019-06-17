@@ -1,6 +1,9 @@
 FROM ubuntu:16.04
 MAINTAINER Piotr Rybałtowski <piotrek@owl-labs.com>
 
+ENV DEBIAN_FRONTEND=noninteractive \
+    COMPOSER_ALLOW_SUPERUSER=1
+
 RUN echo "deb http://ppa.launchpad.net/ondrej/php/ubuntu xenial main" > /etc/apt/sources.list.d/php.list
 RUN apt-get update && \
     apt-get install -y --allow-unauthenticated \
@@ -20,8 +23,9 @@ RUN apt-get update && \
       php-xdebug \
       git \
       unzip
-RUN php -r "readfile('https://getcomposer.org/installer');" | php -- --install-dir=/usr/local/bin --filename=composer
 RUN update-alternatives --set php /usr/bin/php7.1
+RUN php -r "readfile('https://getcomposer.org/installer');" | php -- --install-dir=/usr/local/bin --filename=composer
+RUN composer global require hirak/prestissimo
 
 COPY run-server.sh /
 RUN chmod +x /run-server.sh
