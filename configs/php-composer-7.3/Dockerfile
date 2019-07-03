@@ -19,6 +19,7 @@ RUN apt update \
       php7.3-mysql \
       php7.3-pgsql \
       php7.3-xml \
+      php7.3-yaml \
       php7.3-zip \
       php-xdebug \
       git \
