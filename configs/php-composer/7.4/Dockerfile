@@ -2,8 +2,10 @@ FROM ubuntu:18.04
 LABEL maintainer=piotrek@owl-labs.com
 
 ENV DEBIAN_FRONTEND=noninteractive \
-    COMPOSER_ALLOW_SUPERUSER=1
+    COMPOSER_ALLOW_SUPERUSER=1 \
+    COMPOSER_MEMORY_LIMIT=-1
 
+# Install PHP
 RUN apt update && apt -y upgrade && apt install -y software-properties-common && add-apt-repository ppa:ondrej/php
 RUN apt update \
     && apt install -y \
@@ -23,10 +25,12 @@ RUN apt update \
       php7.4-zip \
       php-xdebug \
       git \
-      unzip
-RUN update-alternatives --set php /usr/bin/php7.4
-RUN php -r "readfile('https://getcomposer.org/installer');" | php -- --install-dir=/usr/local/bin --filename=composer
-RUN composer global require hirak/prestissimo
+      unzip \
+    && update-alternatives --set php /usr/bin/php7.4
+
+# Install Composer
+RUN php -r "readfile('https://getcomposer.org/installer');" | php -- --install-dir=/usr/local/bin --filename=composer \
+    && composer global require hirak/prestissimo
 
 COPY run-server.sh /
 RUN chmod +x /run-server.sh
