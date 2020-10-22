@@ -2,5 +2,4 @@
 
 set -ex
 
-./build.sh $1 $2
-./push.sh $1 $2
+./build.sh "${1}" "${2}" && ./push.sh "${1}" "${2}"

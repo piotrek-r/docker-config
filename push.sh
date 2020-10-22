@@ -2,4 +2,4 @@
 
 set -ex
 
-docker push piotrekr/$1:$2
+docker push piotrekr/"${1}":"${2}"
