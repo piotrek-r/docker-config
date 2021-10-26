@@ -29,8 +29,7 @@ RUN apt update \
     && update-alternatives --set php /usr/bin/php7.4
 
 # Install Composer
-RUN php -r "readfile('https://getcomposer.org/installer');" | php -- --install-dir=/usr/local/bin --filename=composer \
-    && composer global require hirak/prestissimo
+RUN php -r "readfile('https://getcomposer.org/installer');" | php -- --install-dir=/usr/local/bin --filename=composer
 
 COPY run-server.sh /
 RUN chmod +x /run-server.sh

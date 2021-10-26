@@ -26,7 +26,6 @@ RUN apt update \
       unzip
 RUN update-alternatives --set php /usr/bin/php7.2
 RUN php -r "readfile('https://getcomposer.org/installer');" | php -- --install-dir=/usr/local/bin --filename=composer
-RUN composer global require hirak/prestissimo
 
 COPY run-server.sh /
 RUN chmod +x /run-server.sh
