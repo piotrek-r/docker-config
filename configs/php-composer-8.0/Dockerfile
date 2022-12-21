@@ -1,4 +1,4 @@
-FROM ubuntu:20.04
+FROM ubuntu:22.04
 LABEL maintainer=piotrek@owl-labs.com
 
 ENV DEBIAN_FRONTEND=noninteractive \

@@ -2,4 +2,4 @@
 
 set -ex
 
-docker build --no-cache --tag="piotrekr/${1}" "./configs/${1}"
+docker build --pull --tag="piotrekr/${1}:latest" "./configs/${1}"
